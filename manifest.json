@@ -1,7 +1,7 @@
 {
     "name": "hello FireABM",
     "container": "python",
-    "execution_stage": "./runjobs.sh",
+    "execution_stage": "bash ./runjobs.sh",
     "slurm_ceiling": {
         "walltime": "10:00"
     }
