@@ -160,18 +160,24 @@ def main():
 
             try:
                 road_graph = load_road_graph(args.road_graph_pkl)
+                print("road graph loaded")
                 gdf_nodes, gdf_edges = get_node_edge_gdf(road_graph)
+                print("road graph edges created")
                 (bbox, lbbox, poly, x, y) = create_bboxes(gdf_nodes, 0.1, buff_adj=args.bbox_buffer)
+                print("road graph boundaries created")
                 sr_fire = load_shpfile(road_graph, ("fire_input", args.fire_shapefile))
+                print("fire loaded")
                 # init_fire = sr_fire[sr_fire['SimTime'] == args.start_fire_time]
 
                 fig, ax = setup_sim(road_graph, seed)
+                print("fig setup")
                 simulation = NetABM(road_graph, args.num_veh, bbox=lbbox, fire_perim=sr_fire, fire_ignit_time=args.start_fire_time,
                                     fire_des_ts_sec=100, reset_interval=True, placement_prob='Pct_HH_Cpd',
                                     init_strategies={major_strat: strat_perc})
-
+                print("sim created")
                 simulation.run(save_args=(fig, ax, args.rslt_file_name, args.vid_file_name, args.out_folder,
                                i, j, seed, treat_desc, args.exp_desc, args.exp_no, args.nb_no, args.road_graph_pkl), mutate_rate=0.005, update_interval=100)
+                print("simulation run finished")
                 run_count += 1
                 print("\nsuccess! no:", run_count, 'run_time:', datetime.now(time_zone) - run_start_time, 'timestamp:', datetime.now(time_zone).strftime("%H:%M:%S"))
 
