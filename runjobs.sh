@@ -8,4 +8,6 @@ mkdir $result_folder/demo_quick_start$SEED
 chmod 755 $result_folder/demo_quick_start$SEED
 ls -l $result_folder/demo_quick_start$SEED
 
-MPLBACKEND=Agg python run_fireabm.py -nv 10 -sd $SEED -epath $result_folder -ofd demo_quick_start$SEED -strat dist -rg ./Sta_Rosa_2000.pkl -exdsc 'demo_run' -strd 1.0
+cp $executable_folder/Sta_Rosa_2000.pkl $result_folder/Sta_Rosa_2000.pkl
+
+MPLBACKEND=Agg python run_fireabm.py -nv 10 -sd $SEED -epath $result_folder -ofd demo_quick_start$SEED -strat dist -rg Sta_Rosa_2000.pkl -exdsc 'demo_run' -strd 1.0
