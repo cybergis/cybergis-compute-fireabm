@@ -7,7 +7,7 @@ pwd
 mkdir $result_folder/demo_quick_start$SEED
 chmod 755 $result_folder/demo_quick_start$SEED
 
-if [$SLURM_PROCID -eq 0]
+if [$SLURM_PROCID -eq 0];
 then
   cp $executable_folder/Sta_Rosa_2000.pkl $result_folder/Sta_Rosa_2000.pkl
   cp -R $executable_folder/fire_input $result_folder/fire_input
