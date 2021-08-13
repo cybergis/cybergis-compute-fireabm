@@ -1464,21 +1464,21 @@ class NetABM():
                 fig, ax, filename = save_args
             else:
                 print('full save args')
-                fig, ax, filename, result_file, folder, treatment_no, rep_no, seed, treat_desc, exp_desc, exp_no, nb_no, rd_grph_pkl = save_args
+                fig, ax, filename, result_file, folder, treatment_no, rep_no, seed, treat_desc, exp_desc, exp_no, nb_no, rd_grph_pkl, res_path = save_args
 
                 results_cont_folder = str(exp_no) + 'files'
                 movie_cont_folder = str(exp_no) + 'videos'
                 traj_cont_folder = str(exp_no) + 'trajs'
-                print('Folder: ', folder, " results_cont_folder: ", results_cont_folder, " movie_cont_folder: ", movie_cont_folder, " traj_cont_folder: ", traj_cont_folder)
+                print('Folder: ', folder, " results_cont_folder: ", results_cont_folder, " movie_cont_folder: ", movie_cont_folder, " traj_cont_folder: ", traj_cont_folder, " res_path: ", res_path)
                 print('making dirs 0')
-                if not os.path.isdir(os.path.join(folder, results_cont_folder)):
-                    os.mkdir(os.path.join(folder, results_cont_folder))
+                if not os.path.isdir(os.path.join(res_path, folder, results_cont_folder)):
+                    os.mkdir(os.path.join(res_path, folder, results_cont_folder))
                 print('making dirs 1')
-                if not os.path.isdir(os.path.join(folder, movie_cont_folder)):
-                    os.mkdir(os.path.join(folder, movie_cont_folder))
+                if not os.path.isdir(os.path.join(res_path, folder, movie_cont_folder)):
+                    os.mkdir(os.path.join(res_path, folder, movie_cont_folder))
                 print('making dirs 2')
-                if not os.path.isdir(os.path.join(folder, traj_cont_folder)):
-                    os.mkdir(os.path.join(folder, traj_cont_folder))
+                if not os.path.isdir(os.path.join(res_path, folder, traj_cont_folder)):
+                    os.mkdir(os.path.join(res_path, folder, traj_cont_folder))
                 print('sub results dirs created')
                 filename = filename + "_" + str(treatment_no) + "_" + str(rep_no) + "_seed" + str(seed) + '_tspt_' + str(datetime.now().strftime("%d-%m-%y_%H-%M")) + "_nbno_" + str(nb_no) + "_expno_" + str(exp_no) + ".mp4"
 
@@ -1486,7 +1486,7 @@ class NetABM():
 
                 trajectory_file = filename + "_traj_" + str(treatment_no) + "_" + str(rep_no) + "_seed" + str(seed) + '_tspt_' + str(datetime.now().strftime("%d-%m-%y_%H-%M")) + "_nbno_" + str(nb_no) + "_expno_" + str(exp_no) + ".txt"
 
-                filename = os.path.join(folder, movie_cont_folder, filename)
+                filename = os.path.join(res_path, folder, movie_cont_folder, filename)
                 print('filename set')
                 
             ax.add_patch(patches.Rectangle(self.project_bbox[0], self.project_bbox[1][0] - self.project_bbox[0][0], self.project_bbox[1][1] - self.project_bbox[0][1], fill=False, edgecolor='r'))
@@ -1540,7 +1540,7 @@ class NetABM():
 
                     if result_file:
                         print('writing to result file')
-                        with open(os.path.join(folder, results_cont_folder, result_file), 'w') as out_file:
+                        with open(os.path.join(res_path, folder, results_cont_folder, result_file), 'w') as out_file:
                             csv_writer = csv.writer(out_file, delimiter='\t')
 
                             #   result_header = ['Video_fn', 'Result_fn', 'RG_file',
@@ -1595,7 +1595,7 @@ class NetABM():
                             csv_writer.writerow(result_header)
                             csv_writer.writerow(result_row)
 
-                        with open(os.path.join(folder, traj_cont_folder, trajectory_file), 'w') as out_file:
+                        with open(os.path.join(res_path, folder, traj_cont_folder, trajectory_file), 'w') as out_file:
                             csv_writer = csv.writer(out_file, delimiter='\t')
                             for v in self.vehicles:
                                 csv_writer.writerow([v.vid, v.trajectory])
