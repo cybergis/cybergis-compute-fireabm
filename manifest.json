@@ -1,6 +1,6 @@
 {
     "name": "hello FireABM",
-    "container": "python",
+    "container": "cybergisx-0.4",
     "execution_stage": "bash ./runjobs.sh",
     "slurm_ceiling": {
         "walltime": "10:00"
