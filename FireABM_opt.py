@@ -1446,7 +1446,7 @@ class NetABM():
         self.mix_strat = mix_strat
         self.congest_time = congest_time
 
-        # print('start_main_sim body')
+        print('start_main_sim body')
         if self.fire_perim is not None:
             update_interval = self.fire_des_ts_sec
         # save = True
@@ -1459,9 +1459,11 @@ class NetABM():
             #    if i % update_interval == 0:
             #       self.mutate_block(mutate_rate)
         else:
+            print('setting_save_args')
             if len(save_args) == 3:
                 fig, ax, filename = save_args
             else:
+                print('full save args')
                 fig, ax, filename, result_file, folder, treatment_no, rep_no, seed, treat_desc, exp_desc, exp_no, nb_no, rd_grph_pkl = save_args
 
                 results_cont_folder = str(exp_no) + 'files'
@@ -1473,7 +1475,7 @@ class NetABM():
                     os.mkdir(os.path.join(folder, movie_cont_folder))
                 if not os.path.isdir(os.path.join(folder, traj_cont_folder)):
                     os.mkdir(os.path.join(folder, traj_cont_folder))
-
+                print('sub results dirs created')
                 filename = filename + "_" + str(treatment_no) + "_" + str(rep_no) + "_seed" + str(seed) + '_tspt_' + str(datetime.now().strftime("%d-%m-%y_%H-%M")) + "_nbno_" + str(nb_no) + "_expno_" + str(exp_no) + ".mp4"
 
                 result_file = result_file + "_" + str(treatment_no) + "_" + str(rep_no) + "_seed" + str(seed) + '_tspt_' + str(datetime.now().strftime("%d-%m-%y_%H-%M")) + "_nbno_" + str(nb_no) + "_expno_" + str(exp_no) + ".txt"
@@ -1481,7 +1483,8 @@ class NetABM():
                 trajectory_file = filename + "_traj_" + str(treatment_no) + "_" + str(rep_no) + "_seed" + str(seed) + '_tspt_' + str(datetime.now().strftime("%d-%m-%y_%H-%M")) + "_nbno_" + str(nb_no) + "_expno_" + str(exp_no) + ".txt"
 
                 filename = os.path.join(folder, movie_cont_folder, filename)
-
+                print('filename set')
+                
             ax.add_patch(patches.Rectangle(self.project_bbox[0], self.project_bbox[1][0] - self.project_bbox[0][0], self.project_bbox[1][1] - self.project_bbox[0][1], fill=False, edgecolor='r'))
             # if self.target_xy is not None:
             #    ax.scatter(*zip(self.target_xy),marker='x',s=800)
@@ -1520,7 +1523,7 @@ class NetABM():
                 if not any(v.last_move for v in self.vehicles):
                     self.isFinished = True
                     self.report_congestion(math.ceil(frame_number / self.congest_time) * self.congest_time)
-                    # print 'Evacuation completed at time: %d'%frame_number
+                    print('Evacuation completed at time: %d'%frame_number)
 
                     # if seed_number:
                     #    print("Seed_number: ", seed_number)
@@ -1532,6 +1535,7 @@ class NetABM():
                     self.strat_counter = Counter(self.strat_list)
 
                     if result_file:
+                        print('writing to result file')
                         with open(os.path.join(folder, results_cont_folder, result_file), 'w') as out_file:
                             csv_writer = csv.writer(out_file, delimiter='\t')
 
