@@ -6,8 +6,12 @@ echo -e "node id: $SLURM_NODEID, task id: $SLURM_PROCID, start number: $param_st
 pwd
 mkdir $result_folder/demo_quick_start$SEED
 chmod 755 $result_folder/demo_quick_start$SEED
-ls -l $result_folder/demo_quick_start$SEED
 
-cp $executable_folder/Sta_Rosa_2000.pkl $result_folder/Sta_Rosa_2000.pkl
+if [$SLURM_PROCID -eq 0]
+then
+  cp $executable_folder/Sta_Rosa_2000.pkl $result_folder/Sta_Rosa_2000.pkl
+  cp -R $executable_folder/fire_input $result_folder/fire_input
+  cp -R $executable_folder/households $result_folder/households
+fi
 
 MPLBACKEND=Agg python run_fireabm.py -nv 10 -sd $SEED -epath $result_folder -ofd demo_quick_start$SEED -strat dist -rg Sta_Rosa_2000.pkl -exdsc 'demo_run' -strd 1.0
