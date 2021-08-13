@@ -1,5 +1,6 @@
 import argparse
 import os
+import sys
 # import time
 from datetime import datetime
 import pytz
@@ -184,7 +185,7 @@ def main():
                 print("\nsuccess! no:", run_count, 'run_time:', datetime.now(time_zone) - run_start_time, 'timestamp:', datetime.now(time_zone).strftime("%H:%M:%S"))
 
             except:  # noqa: E722 # sometimes crashes
-                print("Issue with this: ", treat_desc, i, j, seed, strat_perc)
+                print("Issue with this: ", treat_desc, i, j, seed, strat_perc, "error:", sys.exc_info()[0])
                 bad_seeds.append(seed)
     print('\nbad_seeds', bad_seeds)
 
