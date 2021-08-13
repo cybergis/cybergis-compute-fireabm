@@ -126,8 +126,8 @@ def main():
     assert len(args.strat_distribution) < 4, "too many strategy distrbutions"
     assert len(args.major_strat) == len(args.strat_distribution), "strategy lists (major strat and distribution) are unequal"
 
-    assert os.path.isfile(pars_exp_path / args.road_graph_pkl), "path to road graph not found"
-    assert os.path.isfile(pars_exp_path / 'fire_input' / args.fire_shapefile), "path to fire shapefile not found"
+    assert os.path.isfile(pars_exp_path / args.road_graph_pkl), "path to road graph not found::"+str(pars_exp_path / args.road_graph_pkl)+"::"
+    assert os.path.isfile(pars_exp_path / 'fire_input' / args.fire_shapefile), "path to fire shapefile not found::"+str(pars_exp_path / 'fire_input' / args.fire_shapefile)+"::"
     fire_shp_ex = args.fire_shapefile.split('.')[0] + '.shx'
     assert os.path.isfile(pars_exp_path / 'fire_input' / fire_shp_ex), 'required file (.shx) is missing for fire shapefile'
     fire_shp_ex = args.fire_shapefile.split('.')[0] + '.dbf'
