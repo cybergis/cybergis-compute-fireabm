@@ -115,7 +115,7 @@ def main():
 
     # check args
     pars_exp_path = Path(args.experiment_path)
-    assert os.path.isdir(pars_exp_path / args.out_folder), "path to output folder not found"
+    assert os.path.isdir(pars_exp_path / args.out_folder), "path to output folder not found"+str(pars_exp_path / args.out_folder)
 
     assert len(args.major_strat) < 4, "too many strategies"
     assert len(set(args.major_strat)) == len(args.major_strat), "duplicate strategies"
