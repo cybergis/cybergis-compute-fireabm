@@ -17,3 +17,10 @@ then
 fi
 
 MPLBACKEND=Agg python run_fireabm.py -nv 2 -sd $SEED -epath $result_folder -ofd demo_quick_start$SEED -strat dist -rg Sta_Rosa_2000.pkl -exdsc 'demo_run' -strd 1.0
+
+
+if [ $SLURM_PROCID -eq 0 ];
+then
+  echo "checking in result folder"
+  ls -l $result_folder/demo_quick_start$SEED
+fi
