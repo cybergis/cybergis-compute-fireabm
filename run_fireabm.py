@@ -179,7 +179,7 @@ def main():
                                     init_strategies={major_strat: strat_perc})
                 print("sim set up!")
                 simulation.run(save_args=(fig, ax, args.rslt_file_name, args.vid_file_name, args.out_folder,
-                               i, j, seed, treat_desc, args.exp_desc, args.exp_no, args.nb_no, args.road_graph_pkl), mutate_rate=0.005, update_interval=100)
+                               i, j, seed, treat_desc, args.exp_desc, args.exp_no, args.nb_no, args.road_graph_pkl, args.experiment_path), mutate_rate=0.005, update_interval=100)
                 print("simulation run finished!")
                 run_count += 1
                 print("\nsuccess! no:", run_count, 'run_time:', datetime.now(time_zone) - run_start_time, 'timestamp:', datetime.now(time_zone).strftime("%H:%M:%S"))
