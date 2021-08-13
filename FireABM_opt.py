@@ -1469,10 +1469,13 @@ class NetABM():
                 results_cont_folder = str(exp_no) + 'files'
                 movie_cont_folder = str(exp_no) + 'videos'
                 traj_cont_folder = str(exp_no) + 'trajs'
+                print('making dirs 0')
                 if not os.path.isdir(os.path.join(folder, results_cont_folder)):
                     os.mkdir(os.path.join(folder, results_cont_folder))
+                print('making dirs 1')
                 if not os.path.isdir(os.path.join(folder, movie_cont_folder)):
                     os.mkdir(os.path.join(folder, movie_cont_folder))
+                print('making dirs 2')
                 if not os.path.isdir(os.path.join(folder, traj_cont_folder)):
                     os.mkdir(os.path.join(folder, traj_cont_folder))
                 print('sub results dirs created')
