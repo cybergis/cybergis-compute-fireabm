@@ -90,6 +90,10 @@ def main():
 
     args = parser.parse_args()
 
+     ########################################################################################################
+    # check working directory
+    print('\n!! Working Directory: ', str(os.getcwd()))
+    
     ########################################################################################################
     # check args
     print('\n!! checking input parameters')
