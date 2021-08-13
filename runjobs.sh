@@ -9,6 +9,7 @@ chmod 755 $result_folder/demo_quick_start$SEED
 
 if [$SLURM_PROCID -eq "0"];
 then
+  echo "copying over files"
   cp $executable_folder/Sta_Rosa_2000.pkl $result_folder/Sta_Rosa_2000.pkl
   cp -R $executable_folder/fire_input $result_folder/fire_input
   cp -R $executable_folder/households $result_folder/households
