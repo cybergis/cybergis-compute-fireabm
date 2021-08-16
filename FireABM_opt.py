@@ -1446,7 +1446,7 @@ class NetABM():
         self.mix_strat = mix_strat
         self.congest_time = congest_time
 
-        print('start_main_sim body')
+        # print('start_main_sim body')
         if self.fire_perim is not None:
             update_interval = self.fire_des_ts_sec
         # save = True
@@ -1459,35 +1459,36 @@ class NetABM():
             #    if i % update_interval == 0:
             #       self.mutate_block(mutate_rate)
         else:
-            print('setting_save_args')
+            # print('setting_save_args')
             if len(save_args) == 3:
                 fig, ax, filename = save_args
             else:
-                print('full save args')
+                # print('full save args')
                 fig, ax, filename, result_file, folder, treatment_no, rep_no, seed, treat_desc, exp_desc, exp_no, nb_no, rd_grph_pkl, res_path = save_args
 
                 results_cont_folder = str(exp_no) + 'files'
                 movie_cont_folder = str(exp_no) + 'videos'
                 traj_cont_folder = str(exp_no) + 'trajs'
-                print('Folder: ', folder, " results_cont_folder: ", results_cont_folder, " movie_cont_folder: ", movie_cont_folder, " traj_cont_folder: ", traj_cont_folder, " res_path: ", res_path)
-                print('making dirs 0')
+                # print('Folder: ', folder, " results_cont_folder: ", results_cont_folder, " movie_cont_folder: ", movie_cont_folder, " traj_cont_folder: ", traj_cont_folder, " res_path: ", res_path)
+                # print('making dirs 0')
                 if not os.path.isdir(os.path.join(res_path, folder, results_cont_folder)):
                     os.mkdir(os.path.join(res_path, folder, results_cont_folder))
-                print('making dirs 1')
+                # print('making dirs 1')
                 if not os.path.isdir(os.path.join(res_path, folder, movie_cont_folder)):
                     os.mkdir(os.path.join(res_path, folder, movie_cont_folder))
-                print('making dirs 2')
+                # print('making dirs 2')
                 if not os.path.isdir(os.path.join(res_path, folder, traj_cont_folder)):
                     os.mkdir(os.path.join(res_path, folder, traj_cont_folder))
-                print('sub results dirs created')
+                # print('sub results dirs created')
+                temp_filename = filename
                 filename = filename + "_" + str(treatment_no) + "_" + str(rep_no) + "_seed" + str(seed) + '_tspt_' + str(datetime.now().strftime("%d-%m-%y_%H-%M")) + "_nbno_" + str(nb_no) + "_expno_" + str(exp_no) + ".mp4"
 
                 result_file = result_file + "_" + str(treatment_no) + "_" + str(rep_no) + "_seed" + str(seed) + '_tspt_' + str(datetime.now().strftime("%d-%m-%y_%H-%M")) + "_nbno_" + str(nb_no) + "_expno_" + str(exp_no) + ".txt"
 
-                trajectory_file = filename + "_traj_" + str(treatment_no) + "_" + str(rep_no) + "_seed" + str(seed) + '_tspt_' + str(datetime.now().strftime("%d-%m-%y_%H-%M")) + "_nbno_" + str(nb_no) + "_expno_" + str(exp_no) + ".txt"
+                trajectory_file = temp_filename + "_traj_" + str(treatment_no) + "_" + str(rep_no) + "_seed" + str(seed) + '_tspt_' + str(datetime.now().strftime("%d-%m-%y_%H-%M")) + "_nbno_" + str(nb_no) + "_expno_" + str(exp_no) + ".txt"
 
                 filename = os.path.join(res_path, folder, movie_cont_folder, filename)
-                print('filename set')
+                # print('filename set')
                 
             ax.add_patch(patches.Rectangle(self.project_bbox[0], self.project_bbox[1][0] - self.project_bbox[0][0], self.project_bbox[1][1] - self.project_bbox[0][1], fill=False, edgecolor='r'))
             # if self.target_xy is not None:
