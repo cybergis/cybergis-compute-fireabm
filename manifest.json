@@ -9,7 +9,7 @@
         "start_value": {
             "type": "string_input",
             "require": true,
-            "default_value": "n/a"
+            "default_value": "20"
         }
     },
     "supported_hpc": ["keeling_community"],
