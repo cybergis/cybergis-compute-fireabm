@@ -4,5 +4,14 @@
     "execution_stage": "bash ./runjobs.sh",
     "slurm_ceiling": {
         "walltime": "10:00"
-    }
+    },
+    "param_rules": {
+        "start_value": {
+            "type": "string_input",
+            "require": true,
+            "default_value": "n/a"
+        }
+    },
+    "supported_hpc": ["keeling_community"],
+    "default_hpc": "keeling_community"
 }
