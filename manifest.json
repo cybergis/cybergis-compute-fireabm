@@ -15,7 +15,7 @@
         "start_value": {
             "type": "string_input",
             "require": true,
-            "default_value": "20"
+            "default_value": "21"
         }
     },
     "supported_hpc": ["keeling_community"],
