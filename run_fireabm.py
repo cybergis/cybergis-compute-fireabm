@@ -15,7 +15,7 @@ import networkx
 #     from FireABM_opt_Keel import load_road_graph, get_node_edge_gdf, create_bboxes, load_shpfile, setup_sim, NetABM
 #     print("using FireABM_opt_Keel")
 
-from FireABM_opt import load_road_graph, get_node_edge_gdf, create_bboxes, load_shpfile, setup_sim, NetABM
+from FireABM_opt_Keel_v2 import load_road_graph, get_node_edge_gdf, create_bboxes, load_shpfile, setup_sim, NetABM
        
     
 print("Networkx version is ", networkx.__version__)
