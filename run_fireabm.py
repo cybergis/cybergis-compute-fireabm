@@ -14,6 +14,9 @@ else:
     from FireABM_opt_Keel import load_road_graph, get_node_edge_gdf, create_bboxes, load_shpfile, setup_sim, NetABM
     print("using FireABM_opt_Keel")
     
+print("Networkx version is ", networkx.__version__)
+print("OSMnx version is ",osmnx.__version__)
+    
 ########################################################################################################
     # This file runs the wildfire evacuation ABM from the command line. Most of the file checks input parameters for validity. Some parameters are set to default for ease of use.
 
