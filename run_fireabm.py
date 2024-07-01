@@ -182,6 +182,11 @@ def main():
                                     fire_des_ts_sec=100, reset_interval=True, placement_prob='Pct_HH_Cpd',
                                     init_strategies={major_strat: strat_perc})
                 print("sim set up!")
+                print("arg vals: fig: ", fig, " ax: ", ax)
+                print("arg vals: args.rslt_file_name: ", args.rslt_file_name, " args.vid_file_name: ", args.vid_file_name)
+                print("arg vals: args.out_folder: ", args.out_folder, " i: ", i, " j: ", j, " seed: ", seed)
+                print("arg vals: treat_desc: ", treat_desc, " args.exp_desc: ", args.exp_desc, " args.exp_no: ", args.exp_no, " args.nb_no: ", args.nb_no)
+                print("arg vals: args.road_graph_pkl: ", args.road_graph_pkl, " args.experiment_path: ", args.experiment_path)
                 simulation.run(save_args=(fig, ax, args.rslt_file_name, args.vid_file_name, args.out_folder,
                                i, j, seed, treat_desc, args.exp_desc, args.exp_no, args.nb_no, args.road_graph_pkl, args.experiment_path), mutate_rate=0.005, update_interval=100)
                 print("simulation run finished!")
