@@ -8,12 +8,15 @@ from pathlib import Path
 import osmnx
 import networkx
 
-if osmnx.__version__ == '0.11.4':
-    from FireABM_opt import load_road_graph, get_node_edge_gdf, create_bboxes, load_shpfile, setup_sim, NetABM
-    print("using FireABM_opt")
-else:
-    from FireABM_opt_Keel import load_road_graph, get_node_edge_gdf, create_bboxes, load_shpfile, setup_sim, NetABM
-    print("using FireABM_opt_Keel")
+# if osmnx.__version__ == '0.11.4':
+#     from FireABM_opt import load_road_graph, get_node_edge_gdf, create_bboxes, load_shpfile, setup_sim, NetABM
+#     print("using FireABM_opt")
+# else:
+#     from FireABM_opt_Keel import load_road_graph, get_node_edge_gdf, create_bboxes, load_shpfile, setup_sim, NetABM
+#     print("using FireABM_opt_Keel")
+
+from FireABM_opt import load_road_graph, get_node_edge_gdf, create_bboxes, load_shpfile, setup_sim, NetABM
+       
     
 print("Networkx version is ", networkx.__version__)
 print("OSMnx version is ",osmnx.__version__)
