@@ -3,8 +3,8 @@
 echo "starting runjobs.sh"
 
 echo "installing networkx and osmnx"
-!pip install --upgrade networkx==2.5.1 --quiet
-!pip install --upgrade osmnx==1.0.1 --quiet
+pip install --upgrade networkx==2.5.1 --quiet
+pip install --upgrade osmnx==1.0.1 --quiet
 
 echo "installing networkx and osmnx complete"
 
