@@ -1,5 +1,13 @@
 #!/bin/bash
 
+echo "starting runjobs.sh"
+
+echo "installing networkx and osmnx"
+!pip install --upgrade networkx==2.5.1 --quiet
+!pip install --upgrade osmnx==1.0.1 --quiet
+
+echo "installing networkx and osmnx complete"
+
 SEED=$(($param_start_value + $SLURM_PROCID))
 echo -e "node id: $SLURM_NODEID, task id: $SLURM_PROCID, start number: $param_start_value, SEED: $SEED, result folder: $result_folder\n"
 
