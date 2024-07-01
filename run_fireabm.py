@@ -186,6 +186,7 @@ def main():
 
             except:  # noqa: E722 # sometimes crashes
                 print("Issue with this: ", treat_desc, i, j, seed, strat_perc, "error:", sys.exc_info()[0])
+                print("error: ", sys.exc_info()[1])
                 bad_seeds.append(seed)
     print('\nbad_seeds', bad_seeds)
 
