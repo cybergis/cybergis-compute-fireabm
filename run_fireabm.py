@@ -188,9 +188,9 @@ def main():
                 run_count += 1
                 print("\nsuccess! no:", run_count, 'run_time:', datetime.now(time_zone) - run_start_time, 'timestamp:', datetime.now(time_zone).strftime("%H:%M:%S"))
 
-            except:  # noqa: E722 # sometimes crashes
-                print("Issue with this: ", treat_desc, i, j, seed, strat_perc, "error:", sys.exc_info()[0])
-                print("error: ", sys.exc_info()[1])
+            except Exception as e:  # noqa: E722 # sometimes crashes
+                print("Issue with this: ", treat_desc, i, j, seed, strat_perc)
+                print("error: ", e)
                 bad_seeds.append(seed)
     print('\nbad_seeds', bad_seeds)
 
