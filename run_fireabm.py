@@ -6,6 +6,7 @@ from datetime import datetime
 import pytz
 from pathlib import Path
 import osmnx
+import networkx
 
 if osmnx.__version__ == '0.11.4':
     from FireABM_opt import load_road_graph, get_node_edge_gdf, create_bboxes, load_shpfile, setup_sim, NetABM
